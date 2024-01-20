@@ -79,3 +79,20 @@ export const deleteProduct = async (req: Request, res: Response) => {
       .json({ error: "Request could not be completed", data: error });
   }
 };
+
+export const getAllProductsInaStore = async (req: Request, res: Response) => {
+  try {
+    const storeId = req.store?.id;
+
+    const products = await db.Product.findAll({
+      where: { storeId },
+    });
+
+    res.status(200).json({ msg: "products Successfully fetched", products });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .json({ error: "Request could not be completed", data: error });
+  }
+};
