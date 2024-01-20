@@ -22,12 +22,12 @@ export const create = async (req: Request, res: Response) => {
     });
 
     const token = generateToken(admin.id);
-    res.status(200).json({ msg: "store created successfully", token });
-  } catch (err) {
-    console.log(err);
+    res.status(200).json({ message: "store created successfully", token });
+  } catch (error) {
+    console.log(error);
     res
       .status(500)
-      .json({ error: "Request could not be completed", data: err });
+      .json({ error: "Request could not be completed", data: error });
   }
 };
 
@@ -46,11 +46,11 @@ export const login = async (req: Request, res: Response) => {
     }
     const token = generateToken(store.id);
     res.status(200).json({ message: "store logged in sucessfully ", token });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res
       .status(500)
-      .json({ error: "Request could not be completed", data: err });
+      .json({ error: "Request could not be completed", data: error });
   }
 };
 
@@ -66,10 +66,11 @@ export const LoggedInUser = async (req: Request, res: Response) => {
       });
     }
 
-    res.status(200).json({ msg: "store found", store });
-  } catch (err) {
+    res.status(200).json({ message: "store found", store });
+  } catch (error) {
+    console.log(error);
     res
       .status(500)
-      .json({ error: "Request could not be completed", data: err });
+      .json({ error: "Request could not be completed", data: error });
   }
 };
