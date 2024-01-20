@@ -1,0 +1,47 @@
+{
+  "development": {
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "pool": {
+      "max": 10,
+      "min": 0,
+      "idle": 5000,
+      "acquire": 50000,
+      "handleDisconnects": true
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "staging": {
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "ssl": true,
+    "pool": {
+      "max_comment": "This could be all the way up to 120",
+      "max": 80,
+      "min": 0,
+      "idle": 5000,
+      "acquire": 50000,
+      "handleDisconnects": true
+    }
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "ssl": true,
+    "pool": {
+      "max_comment": "This could be all the way up to 120",
+      "max": 80,
+      "min": 0,
+      "idle": 5000,
+      "acquire": 50000,
+      "handleDisconnects": true
+    }
+  }
+}
