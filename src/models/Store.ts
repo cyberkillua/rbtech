@@ -38,11 +38,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true, // This column can be null for active records
+      },
     },
     {
       sequelize,
       tableName: "stores",
       modelName: "Store",
+      paranoid: true,
     }
   );
 

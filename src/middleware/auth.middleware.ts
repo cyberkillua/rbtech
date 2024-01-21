@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import db from "../models";
 
-interface UserPayload {
+interface StorePayload {
   id: string;
 }
 
@@ -24,9 +24,9 @@ export const isLoggedIn = async (
         const decoded = jwt.verify(
           token,
           process.env.JWT_SECRET as string
-        ) as UserPayload;
+        ) as StorePayload;
 
-        req.user = await db.User.findOne({ where: { id: decoded.id } });
+        req.store = await db.Store.findOne({ where: { id: decoded.id } });
 
         next();
       }
