@@ -10,7 +10,7 @@ export const create = async (req: Request, res: Response) => {
     const storeExists = await db.Store.findOne({ where: { email } });
     if (storeExists) {
       return res.status(400).json({
-        message: "admin already exists",
+        message: "store already exists",
       });
     }
     const hashedPassword = await hashPassword(password);
