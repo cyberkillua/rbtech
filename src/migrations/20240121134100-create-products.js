@@ -37,6 +37,23 @@ module.exports = {
         defaultValue: [],
         allowNull: false,
       },
+      category: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      status: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      numberSold: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      lastSold: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
       storeId: {
         type: Sequelize.UUID,
         allowNull: false,

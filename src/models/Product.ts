@@ -46,13 +46,30 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: [],
         allowNull: false,
       },
+      category: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      status: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      numberSold: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      lastSold: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
       storeId: {
         type: DataTypes.UUID,
         allowNull: false,
       },
       deletedAt: {
         type: DataTypes.DATE,
-        allowNull: true, // This column can be null for active records
+        allowNull: true,
       },
     },
     {
