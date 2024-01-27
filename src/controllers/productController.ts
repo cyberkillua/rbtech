@@ -3,7 +3,15 @@ import { Request, Response } from "express";
 
 export const addProductToStore = async (req: Request, res: Response) => {
   try {
-    const { name, price, description, photos, availableSize } = req.body;
+    const {
+      name,
+      price,
+      description,
+      photos,
+      availableSize,
+      category,
+      stockAvailabe,
+    } = req.body;
     const storeId = req.store?.id;
 
     const product = await db.Product.create({
@@ -13,6 +21,8 @@ export const addProductToStore = async (req: Request, res: Response) => {
       photos,
       availableSize,
       storeId,
+      category,
+      stockAvailabe,
     });
 
     res.status(200).json({ message: "product created successfully", product });
@@ -26,8 +36,16 @@ export const addProductToStore = async (req: Request, res: Response) => {
 
 export const editProduct = async (req: Request, res: Response) => {
   try {
-    const { name, price, description, photos, availableSize, productId } =
-      req.body;
+    const {
+      name,
+      price,
+      description,
+      photos,
+      availableSize,
+      productId,
+      category,
+      stockAvailabe,
+    } = req.body;
 
     const product = await db.Product.findOne({
       where: { id: productId },
@@ -45,6 +63,8 @@ export const editProduct = async (req: Request, res: Response) => {
         description,
         photos,
         availableSize,
+        category,
+        stockAvailabe,
       },
       { where: { id: productId } }
     );

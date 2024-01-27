@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      status: {
+      stockAvailabe: {
         type: DataTypes.INTEGER,
         allowNull: true,
       },

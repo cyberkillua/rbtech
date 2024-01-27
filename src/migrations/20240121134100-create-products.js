@@ -41,7 +41,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      status: {
+      stockAvailabe: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
